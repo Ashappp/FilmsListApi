@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const allFilmsList = require("../controllers/filmsListcontroller");
 
-router.get("/", allFilmsList);
+router.get("/all", allFilmsList.getAllList);
 
 // router.delete('/goals',);
 
 // router.put('/update',userController.updatePassword);
 
-module.exports = routes;
+module.exports = router;
