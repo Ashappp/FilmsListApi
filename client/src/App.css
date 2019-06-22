@@ -1,40 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Yatra One", cursive;
+}
+*::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: white;
+  border-radius: 100%;
+}
 .App {
-  background-color: #282c34;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-image: linear-gradient (rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-bottom: 7%;
+}
+.loader {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+.loaderText {
   color: white;
+  font-size: 1.43rem;
+  text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.fox {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 0.125rem #fff;
+  font-weight: 800;
+  position: absolute;
+  bottom: 0.3%;
+  right: 1%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fox_img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 768px) {
+  .App {
+    padding-bottom: 2%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (min-width: 1200px) {
+  .fox {
+    position: absolute;
+    bottom: 0.1%;
+    right: 0.5%;
+    padding: 0;
   }
 }

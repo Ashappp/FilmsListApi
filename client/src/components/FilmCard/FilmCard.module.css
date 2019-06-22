@@ -1,0 +1,7 @@
+.dashboard__filmCard {
+  width: 20rem;
+  height: 10rem;
+  margin: 0 auto;
+  background-color: orangered;
+  list-style: none;
+}

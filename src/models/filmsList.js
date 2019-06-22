@@ -11,10 +11,11 @@ const FilmsListSchema = new Schema({
   },
   format: {
     type: String,
-    default: 1
+    required: true
   },
   stars: {
-    type: Array
+    type: Array,
+    required: true
   }
 });
 

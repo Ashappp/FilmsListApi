@@ -2,38 +2,28 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import asyncDataAction from "../../redux/actions/getData";
-import style from "./Dashboard.module.css";
+// import style from "./Dashboard.module.css";
 import FilmCard from "../FilmCard/FilmCard";
+// import Loader from "react-loader-spinner";
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    const { input } = this.props;
-    this.props.getdata(input);
-  }
   render() {
+    const { data } = this.props;
     return (
-      <div className={style.dashboard}>
-        <FilmCard />
-      </div>
+      <ul>
+        {data.length
+          ? data.map(el => <FilmCard item={el} key={el._id} />)
+          : null}
+      </ul>
     );
   }
 }
 
 const MSTP = store => ({
-  input: store.input
-});
-
-const MDTP = dispatch => ({
-  getdata: input => dispatch(asyncDataAction(input))
+  input: store.input,
+  data: store.data
 });
 
 Dashboard.propTypes = {};
 
-export default connect(
-  MSTP,
-  MDTP
-)(Dashboard);
+export default connect(MSTP)(Dashboard);
