@@ -19,7 +19,7 @@ class Dashboard extends Component {
 
 const MSTP = store => ({
   input: store.input,
-  data: store.drawObj
+  data: store.drawArr
 });
 
 Dashboard.propTypes = {};

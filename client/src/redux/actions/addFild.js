@@ -1,7 +1,7 @@
 const addFild = e => ({
   type: "ADD_FILD",
-  key: e.name,
-  value: e.value
+  key: e.target.name,
+  value: e.target.value
 });
 
 export default addFild;

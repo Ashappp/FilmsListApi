@@ -1,6 +1,6 @@
 const initialState = {
   title: "",
-  stars: ""
+  star: ""
 };
 
 function filterFilds(state = initialState, action) {

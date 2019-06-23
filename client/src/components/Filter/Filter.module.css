@@ -1,9 +1,16 @@
+.filter__conteiner {
+  position: absolute;
+  top: 10rem;
+  right: 5rem;
+  list-style: none;
+}
+
 .input {
-  width: 100px;
-  height: 100px;
+  width: 5rem;
+  height: 2rem;
 }
 
 .button {
-  width: 20px;
+  width: 10rem;
   height: 10px;
 }

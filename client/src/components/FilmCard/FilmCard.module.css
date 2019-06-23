@@ -1,7 +1,13 @@
 .dashboard__filmCard {
   width: 20rem;
   height: 10rem;
-  margin: 0 auto;
+  margin: 2rem auto;
   background-color: orangered;
   list-style: none;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }

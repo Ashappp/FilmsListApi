@@ -21,6 +21,7 @@ class App extends Component {
     this.props.getData(input);
     this.props.getFilterArr(data);
   }
+
   render() {
     const { data } = this.props;
     return (
