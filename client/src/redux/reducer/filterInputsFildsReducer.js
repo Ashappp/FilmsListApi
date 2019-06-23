@@ -1,18 +1,15 @@
 const initialState = {
-  id: Date.now(),
   title: "",
-  year: "",
-  format: "",
   stars: ""
 };
 
-function data(state = initialState, action) {
+function filterFilds(state = initialState, action) {
   switch (action.type) {
-    case "ADD_FILD":
+    case "ADD_FILTER_FILD":
       return { ...state, [action.key]: action.value };
     default:
       return state;
   }
 }
 
-export default data;
+export default filterFilds;

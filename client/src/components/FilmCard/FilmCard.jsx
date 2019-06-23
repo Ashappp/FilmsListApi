@@ -8,7 +8,7 @@ const FilmCard = ({ item }) => {
       <p>{item.title}</p>
       <p>{item.format}</p>
       <p>{item.stars}</p>
-      <Button>delete</Button>
+      <Button data>delete</Button>
       <Button>show info</Button>
     </li>
   );

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { getObjFromDraw } from "../actions/objDraw";
 // const objData = [
 //   {
 //     Id: 1,
@@ -120,7 +120,7 @@ const getData = data => ({
   payload: data
 });
 
-const asyncDataAction = input => dispatch => {
+const asyncDataAction = () => dispatch => {
   axios
     .get(`http://localhost:3003/api/all`)
     // axios.get(
@@ -129,7 +129,9 @@ const asyncDataAction = input => dispatch => {
     .then(res => {
       console.log(res);
       dispatch(getData(res.data.data));
+      dispatch(getObjFromDraw(res.data.data));
     })
+
     .catch(error => console.log(error));
 };
 

@@ -8,6 +8,8 @@ import style from "./App.css";
 import Loader from "react-loader-spinner";
 import asyncDataAction from "./redux/actions/getData";
 import Header from "./components/Header/Header";
+import Filter from "./components/Filter/Filter";
+import getObjFromDraw from "./redux/actions/objDraw";
 
 class App extends Component {
   constructor(props) {
@@ -15,8 +17,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const { input } = this.props;
+    const { input, data } = this.props;
     this.props.getData(input);
+    this.props.getFilterArr(data);
   }
   render() {
     const { data } = this.props;
@@ -37,6 +40,7 @@ class App extends Component {
         ) : (
           <div>
             <Header />
+            <Filter />
             <Switch>
               <Route exact path="/" render={() => <Dashboard />} />
               <Route path="/upload" component={UploadFile} />
@@ -54,7 +58,8 @@ const MSTP = store => ({
 });
 
 const MDTP = dispatch => ({
-  getData: input => dispatch(asyncDataAction(input))
+  getData: input => dispatch(asyncDataAction(input)),
+  getFilterArr: data => dispatch(getObjFromDraw.getObjFromDraw(data))
 });
 
 export default connect(
