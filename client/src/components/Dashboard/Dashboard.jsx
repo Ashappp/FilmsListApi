@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import style from "./Dashboard.module.css";
-import FilmCard from "../FilmCard/FilmCard";
+import MovieCard from "../MovieCard/MovieCard";
 
 class Dashboard extends Component {
   render() {
@@ -10,7 +10,7 @@ class Dashboard extends Component {
     return (
       <ul>
         {data.length
-          ? data.map(el => <FilmCard item={el} key={el._id} />)
+          ? data.map(el => <MovieCard item={el} key={el._id} />)
           : null}
       </ul>
     );

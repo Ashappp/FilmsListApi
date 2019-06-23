@@ -1,11 +1,11 @@
 import React from "react";
-import style from "./FilmCard.module.css";
+import style from "./MovieCard.module.css";
 import Button from "../Button/Button";
 import DeleteIcon from "../ButtonDelete/ButtonDelete";
 
-const FilmCard = ({ item }) => {
+const MovieCard = ({ item }) => {
   return (
-    <li className={style.dashboard__filmCard}>
+    <li className={style.dashboard__movieCard}>
       <p>{item.title}</p>
       <p>{item.format}</p>
       <ul className={style.list}>
@@ -14,9 +14,9 @@ const FilmCard = ({ item }) => {
         ))}
       </ul>
       <Button>show info</Button>
-      <DeleteIcon />
+      <DeleteIcon data-id ={item._id} />
     </li>
   );
 };
 
-export default FilmCard;
+export default MovieCard;
