@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getObjFromDraw } from "../actions/objDraw";
+import { getArrFromDraw } from "../actions/arrDraw";
 // const objData = [
 //   {
 //     Id: 1,
@@ -129,7 +129,7 @@ const asyncDataAction = () => dispatch => {
     .then(res => {
       console.log(res);
       dispatch(getData(res.data.data));
-      dispatch(getObjFromDraw(res.data.data));
+      dispatch(getArrFromDraw(res.data.data));
     })
 
     .catch(error => console.log(error));

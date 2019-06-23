@@ -9,7 +9,7 @@ import Loader from "react-loader-spinner";
 import asyncDataAction from "./redux/actions/getData";
 import Header from "./components/Header/Header";
 import Filter from "./components/Filter/Filter";
-import getObjFromDraw from "./redux/actions/objDraw";
+import getArrFromDraw from "./redux/actions/arrDraw";
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ const MSTP = store => ({
 
 const MDTP = dispatch => ({
   getData: input => dispatch(asyncDataAction(input)),
-  getFilterArr: data => dispatch(getObjFromDraw.getObjFromDraw(data))
+  getFilterArr: data => dispatch(getArrFromDraw.getArrFromDraw(data))
 });
 
 export default connect(

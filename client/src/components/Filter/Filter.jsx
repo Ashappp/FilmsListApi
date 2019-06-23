@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./Filter.module.css";
 import {
-  objFilterSort,
-  objFilterTitle,
-  objFilterStar
-} from "../../redux/actions/objDraw";
+  arrFilterSort,
+  arrFilterTitle,
+  arrFilterStar
+} from "../../redux/actions/arrDraw";
 import { connect } from "react-redux";
 import addFilterFild from "../../redux/actions/filterInputFilds";
 // import { func } from "prop-types";
@@ -47,7 +47,7 @@ class Filter extends React.Component {
           <button onClick={() => FilterStar(data, star)}>Актер</button>
         </li>
         <li className={style.input}>
-          <Button onClick={FilterSort}>По названию</Button>
+          <Button onClick={()=>FilterSort(data)}>По названию</Button>
         </li>
       </ul>
     );
@@ -61,9 +61,9 @@ const MSTP = store => ({
 });
 
 const MDTP = dispatch => ({
-  FilterTitle: (data, param) => dispatch(objFilterTitle(data, param)),
-  FilterStar: (data, param) => dispatch(objFilterStar(data, param)),
-  FilterSort: () => dispatch(objFilterSort()),
+  FilterTitle: (data, param) => dispatch(arrFilterTitle(data, param)),
+  FilterStar: (data, param) => dispatch(arrFilterStar(data, param)),
+  FilterSort: data => dispatch(arrFilterSort(data)),
   addFilterFild: e => dispatch(addFilterFild(e))
 });
 

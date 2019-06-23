@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import data from "./getDataReducer";
 import dataFild from "./addFildReducer";
-import drawArr from "./createObjDrawReducer";
+import drawArr from "./createArrDrawReducer";
 import filterFilds from "./filterInputsFildsReducer";
 
 const rootReducer = combineReducers({

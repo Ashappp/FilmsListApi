@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const allFilmsList = require("../controllers/filmsListcontroller");
+const allMovieList = require("../controllers/movieListcontroller");
 
-router.get("/all", allFilmsList.getAllList);
+router.get("/all", allMovieList.getAllList);
 
-// router.delete('/goals',);
+router.delete('/delete', allMovieList.deleteMovie);
 
-// router.put('/update',userController.updatePassword);
+router.put('/create',allMovieList.createNewMovie);
 
 module.exports = router;
