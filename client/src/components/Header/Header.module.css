@@ -1,13 +1,9 @@
 .list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 
   list-style: none;
   width: 70%;
   margin: 4% auto 9%;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .item {

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import asyncDataAction from "../../redux/actions/getData";
-// import style from "./Dashboard.module.css";
+import style from "./Dashboard.module.css";
 import FilmCard from "../FilmCard/FilmCard";
-// import Loader from "react-loader-spinner";
 
 class Dashboard extends Component {
   render() {
