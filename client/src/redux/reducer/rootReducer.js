@@ -1,14 +1,12 @@
-import { combineReducers } from "redux";
+import {
+  combineReducers
+} from "redux";
 import data from "./getDataReducer";
-import dataFild from "./addFildReducer";
-import drawArr from "./createArrDrawReducer";
-import filterFilds from "./filterInputsFildsReducer";
+import filteredData from "./filteredDataReducer";
 
 const rootReducer = combineReducers({
   data,
-  dataFild,
-  drawArr,
-  filterFilds
+  filteredData,
 });
 
 export default rootReducer;

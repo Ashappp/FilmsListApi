@@ -1,5 +1,5 @@
 export const getArrFromDraw = data => ({
-  type: "GET_OBJECT_DRAW",
+  type: "ADD_DATA_IN_STORE",
   payload: data
 });
 
@@ -15,14 +15,26 @@ export const arrFilterStar = (data, param) => ({
   param
 });
 
-export const arrFilterSort = data => ({
-  type: "GET_SORT_MOVIE",
+export const arrFilterSortAZ = data => ({
+  type: "GET_SORT_MOVIE_AZ",
   payload: data
 });
+
+export const arrFilterSortZA = data => ({
+  type: "GET_SORT_MOVIE_ZA",
+  payload: data
+});
+
+export const deleteFilteredData = id => ({
+  type: "DELETE_FILTERED_DATA",
+  id
+})
 
 export default {
   getArrFromDraw,
   arrFilterTitle,
   arrFilterStar,
-  arrFilterSort
+  arrFilterSortAZ,
+  arrFilterSortZA,
+  deleteFilteredData
 };

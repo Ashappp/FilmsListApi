@@ -7,14 +7,15 @@ const MovieListSchema = new Schema({
     required: true
   },
   releaseYear: {
-    type: Number
+    type: Number,
+    required: true
   },
   format: {
     type: String,
     required: true
   },
   stars: {
-    type: Array,
+    type: [String],
     required: true
   }
 });

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import style from "./Dashboard.module.css";
+import s from "./MovieList.module.css";
 import MovieCard from "../MovieCard/MovieCard";
 
 class Dashboard extends Component {
   render() {
-    const { data } = this.props;
+    const { filteredData } = this.props;
     return (
-      <ul>
-        {data.length
-          ? data.map(el => <MovieCard item={el} key={el._id} />)
+      <ul className={s.movie_list}>
+        {filteredData.length
+          ? filteredData.map(el => <MovieCard item={el} key={el._id} />)
           : null}
       </ul>
     );
@@ -18,8 +18,7 @@ class Dashboard extends Component {
 }
 
 const MSTP = store => ({
-  input: store.input,
-  data: store.drawArr
+  filteredData: store.filteredData
 });
 
 Dashboard.propTypes = {};

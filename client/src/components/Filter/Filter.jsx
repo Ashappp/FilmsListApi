@@ -1,53 +1,73 @@
-import React from "react";
-import style from "./Filter.module.css";
+import React, { Component } from "react";
 import {
-  arrFilterSort,
+  arrFilterSortAZ,
+  arrFilterSortZA,
   arrFilterTitle,
   arrFilterStar
-} from "../../redux/actions/arrDraw";
+} from "../../redux/actions/filteredDataActions";
 import { connect } from "react-redux";
-import addFilterFild from "../../redux/actions/filterInputFilds";
-// import { func } from "prop-types";
-import InputUi from "@material-ui/core/Input";
-import Button from "@material-ui/core/Button";
+import s from "./Filter.module.css";
 
-class Filter extends React.Component {
+class Filter extends Component {
+  state = {
+    filmTitle: "",
+    starName: ""
+  };
+
+  handelChangeTitle = e => {
+    const { FilterTitle, data } = this.props;
+    this.setState(
+      {
+        filmTitle: e.target.value
+      },
+      () => FilterTitle(data, this.state.filmTitle)
+    );
+  };
+
+  handelChangeActor = e => {
+    const { FilterStar, data } = this.props;
+    this.setState(
+      {
+        starName: e.target.value
+      },
+      () => FilterStar(data, this.state.starName)
+    );
+  };
+
   render() {
-    const {
-      data,
-      title,
-      star,
-      FilterSort,
-      FilterTitle,
-      FilterStar,
-      addFilterFild
-    } = this.props;
+    const { data, FilterSortAZ, FilterSortZA } = this.props;
+    const { filmTitle, starName } = this.state;
     return (
-      <ul className={style.filter__conteiner}>
-        <li className={style}>
-          <InputUi
-            name="title"
+      <ul className={s.list}>
+        <li className={s.list_item}>
+          <input
+            name="filmTitle"
             type="text"
-            placeholder="Title"
-            className={style.input}
-            onChange={addFilterFild}
+            placeholder="Search film by name"
+            className={s.input}
+            onChange={this.handelChangeTitle}
+            value={filmTitle}
           />
-          <button name="title" onClick={() => FilterTitle(data, title)}>
-            Название фильма
+        </li>
+        <li className={s.list_item}>
+          <input
+            name="starName"
+            type="text"
+            placeholder="Search film by actor name"
+            className={s.input}
+            onChange={this.handelChangeActor}
+            value={starName}
+          />
+        </li>
+        <li className={s.list_item}>
+          <button className={s.btn} onClick={() => FilterSortAZ(data)}>
+            Sort by film name A-Z
           </button>
         </li>
-        <li className={style}>
-          <InputUi
-            name="star"
-            type="text"
-            placeholder="Star"
-            className={style.input}
-            onChange={addFilterFild}
-          />
-          <button onClick={() => FilterStar(data, star)}>Актер</button>
-        </li>
-        <li className={style.input}>
-          <Button onClick={()=>FilterSort(data)}>По названию</Button>
+        <li className={s.list_item}>
+          <button className={s.btn} onClick={() => FilterSortZA(data)}>
+            Sort by film name Z-A
+          </button>
         </li>
       </ul>
     );
@@ -55,19 +75,15 @@ class Filter extends React.Component {
 }
 
 const MSTP = store => ({
-  data: store.data,
-  title: store.filterFilds.title,
-  star: store.filterFilds.star
+  data: store.data
 });
 
 const MDTP = dispatch => ({
   FilterTitle: (data, param) => dispatch(arrFilterTitle(data, param)),
   FilterStar: (data, param) => dispatch(arrFilterStar(data, param)),
-  FilterSort: data => dispatch(arrFilterSort(data)),
-  addFilterFild: e => dispatch(addFilterFild(e))
+  FilterSortAZ: data => dispatch(arrFilterSortAZ(data)),
+  FilterSortZA: data => dispatch(arrFilterSortZA(data))
 });
-
-Filter.propTypes = {};
 
 export default connect(
   MSTP,

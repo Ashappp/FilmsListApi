@@ -1,16 +1,33 @@
-.filter__conteiner {
-  position: absolute;
-  top: 10rem;
-  right: 5rem;
+.list {
+  display: flex;
   list-style: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list_item {
+  flex-basis: 25%;
+  overflow: hidden;
+  margin-right: 2rem;
 }
 
 .input {
-  width: 5rem;
-  height: 2rem;
+  width: 200px;
+  outline: 0;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border: none;
+  border-bottom: 1px solid rgb(177, 173, 173);
 }
 
-.button {
-  width: 10rem;
-  height: 10px;
+.btn {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 30px;
+  background-color: rgb(214, 208, 208);
 }

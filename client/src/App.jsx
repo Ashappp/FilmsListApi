@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Dashboard from "./components/Dashboard/Dashboard";
-import UploadFile from "./components/UploadFile/UploadFile";
-import AddFilmCard from "./components/AddFilmCard/AddFilmCard";
-import style from "./App.css";
+import MoviesPage from "./pages/MoviesPage/MoviesPage";
+import AddMoviesPage from "./pages/AddMoviesPage/AddMoviesPage";
+import UploadFilePage from "./pages/UploadFilePage/UploadFilePage";
+import s from "./App.module.css";
 import Loader from "react-loader-spinner";
-import asyncDataAction from "./redux/actions/getData";
+import getData from "./redux/actions/getData";
 import Header from "./components/Header/Header";
-import Filter from "./components/Filter/Filter";
-import getArrFromDraw from "./redux/actions/arrDraw";
+import getArrFromDraw from "./redux/actions/filteredDataActions";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+  state = {};
 
   componentDidMount() {
     const { input, data } = this.props;
@@ -25,27 +22,20 @@ class App extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div
-        className={style.App}
-        style={
-          {
-            // backgroundImage: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${})`
-          }
-        }
-      >
+      <div className={s.container}>
         {!data.length ? (
-          <div className={style.loader}>
+          <div className={s.loader}>
             <Loader type="Puff" color="#fff" height="100" width="100" />
-            <p className={style.loaderText}>Loading...</p>
+            <p className={s.loaderText}>Loading...</p>
           </div>
         ) : (
           <div>
             <Header />
-            <Filter />
             <Switch>
-              <Route exact path="/" render={() => <Dashboard />} />
-              <Route path="/upload" component={UploadFile} />
-              <Route path="/add" component={AddFilmCard} />
+              <Redirect exact from="/" to="/movies" />
+              <Route exact path="/movies" component={MoviesPage} />
+              <Route path="/uploadfile" component={UploadFilePage} />
+              <Route path="/addmovie" component={AddMoviesPage} />
             </Switch>
           </div>
         )}
@@ -59,7 +49,7 @@ const MSTP = store => ({
 });
 
 const MDTP = dispatch => ({
-  getData: input => dispatch(asyncDataAction(input)),
+  getData: input => dispatch(getData.asyncDataAction(input)),
   getFilterArr: data => dispatch(getArrFromDraw.getArrFromDraw(data))
 });
 

@@ -1,13 +1,61 @@
-.dashboard__movieCard {
-  width: 20rem;
-  height: 10rem;
-  margin: 2rem auto;
-  background-color: orangered;
+.list_item {
+  flex-basis: 20%;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: rgb(226, 222, 165);
   list-style: none;
+  overflow-y: scroll;
+  margin: 0 2rem 2rem 0;
 }
 
 .list {
   list-style: none;
   display: flex;
   flex-direction: column;
+}
+
+.actor_list {
+  color: grey;
+}
+
+.actor {
+  font-size: 0.7rem;
+}
+
+.delete_btn {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow:
+}
+
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 6px;
+  height: 0px
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #b39117;
+  box-shadow: 0px 1px 1px #fff inset;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::-webkit-resizer {
+  background-repeat: no-repeat;
+  width: 7px;
+  height: 0px
+}
+
+::-webkit-scrollbar {
+  width: 11px;
 }

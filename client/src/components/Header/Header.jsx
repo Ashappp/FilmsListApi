@@ -4,23 +4,27 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <ul className={style.list}>
-      <li>
-        <NavLink className={style.item} to="/">
-          Films
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={style.item} to="/upload">
-          Upload file
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={style.item} to="/add">
-          Add films
-        </NavLink>
-      </li>
-    </ul>
+    <header className={style.header}>
+      <nav>
+        <ul className={style.list}>
+          <li>
+            <NavLink className={style.item} to="/movies">
+              Films
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={style.item} to="/uploadfile">
+              Upload file
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={style.item} to="/addmovie">
+              Add films
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

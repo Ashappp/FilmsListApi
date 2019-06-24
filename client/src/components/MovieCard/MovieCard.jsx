@@ -1,22 +1,34 @@
 import React from "react";
-import style from "./MovieCard.module.css";
-import Button from "../Button/Button";
-import DeleteIcon from "../ButtonDelete/ButtonDelete";
+import { connect } from "react-redux";
+import getData from "../../redux/actions/getData";
+import s from "./MovieCard.module.css";
 
-const MovieCard = ({ item }) => {
+const MovieCard = ({ item, deleteFilm }) => {
   return (
-    <li className={style.dashboard__movieCard}>
-      <p>{item.title}</p>
-      <p>{item.format}</p>
-      <ul className={style.list}>
+    <li className={s.list_item} key={item._id}>
+      <h2>{item.title}</h2>
+      <h3>{item.format}</h3>
+      <h4>Release year: {item.releaseYear}</h4>
+      <p className={s.actor_list}>Actor list:</p>
+      <ul className={s.list}>
         {item.stars.map(el => (
-          <li key={el._id}>{el}</li>
+          <li className={s.actor} key={el}>
+            {el}
+          </li>
         ))}
       </ul>
-      <Button>show info</Button>
-      <DeleteIcon data-id ={item._id} />
+      <button className={s.delete_btn} onClick={() => deleteFilm(item._id)}>
+        delete
+      </button>
     </li>
   );
 };
 
-export default MovieCard;
+const MDTP = dispatch => ({
+  deleteFilm: id => dispatch(getData.asyncDeleteDataAction(id))
+});
+
+export default connect(
+  null,
+  MDTP
+)(MovieCard);
