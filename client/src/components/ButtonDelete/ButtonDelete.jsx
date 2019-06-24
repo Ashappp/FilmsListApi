@@ -12,11 +12,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonDelete() {
+export default function ButtonDelete(props) {
   const classes = useStyles();
 
   return (
-    <IconButton aria-label="Delete" className={classes.margin}>
+    <IconButton aria-label="Delete" className={classes.margin} onClick={props}>
       <DeleteIcon fontSize="small" />
     </IconButton>
   );

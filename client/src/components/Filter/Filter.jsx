@@ -6,6 +6,7 @@ import {
   arrFilterStar
 } from "../../redux/actions/filteredDataActions";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import s from "./Filter.module.css";
 
 class Filter extends Component {
@@ -15,27 +16,27 @@ class Filter extends Component {
   };
 
   handelChangeTitle = e => {
-    const { FilterTitle, data } = this.props;
+    const { filterTitle, data } = this.props;
     this.setState(
       {
         filmTitle: e.target.value
       },
-      () => FilterTitle(data, this.state.filmTitle)
+      () => filterTitle(data, this.state.filmTitle)
     );
   };
 
   handelChangeActor = e => {
-    const { FilterStar, data } = this.props;
+    const { filterStar, data } = this.props;
     this.setState(
       {
         starName: e.target.value
       },
-      () => FilterStar(data, this.state.starName)
+      () => filterStar(data, this.state.starName)
     );
   };
 
   render() {
-    const { data, FilterSortAZ, FilterSortZA } = this.props;
+    const { data, filterSortAZ, filterSortZA } = this.props;
     const { filmTitle, starName } = this.state;
     return (
       <ul className={s.list}>
@@ -60,12 +61,12 @@ class Filter extends Component {
           />
         </li>
         <li className={s.list_item}>
-          <button className={s.btn} onClick={() => FilterSortAZ(data)}>
+          <button className={s.btn} onClick={() => filterSortAZ(data)}>
             Sort by film name A-Z
           </button>
         </li>
         <li className={s.list_item}>
-          <button className={s.btn} onClick={() => FilterSortZA(data)}>
+          <button className={s.btn} onClick={() => filterSortZA(data)}>
             Sort by film name Z-A
           </button>
         </li>
@@ -79,11 +80,21 @@ const MSTP = store => ({
 });
 
 const MDTP = dispatch => ({
-  FilterTitle: (data, param) => dispatch(arrFilterTitle(data, param)),
-  FilterStar: (data, param) => dispatch(arrFilterStar(data, param)),
-  FilterSortAZ: data => dispatch(arrFilterSortAZ(data)),
-  FilterSortZA: data => dispatch(arrFilterSortZA(data))
+  filterTitle: (data, param) => dispatch(arrFilterTitle(data, param)),
+  filterStar: (data, param) => dispatch(arrFilterStar(data, param)),
+  filterSortAZ: data => dispatch(arrFilterSortAZ(data)),
+  filterSortZA: data => dispatch(arrFilterSortZA(data))
 });
+
+Filter.propTypes = {
+  filterTitle: PropTypes.func.isRequired,
+  filterStar: PropTypes.func.isRequired,
+  filterSortAZ: PropTypes.func.isRequired,
+  filterSortZA: PropTypes.func.isRequired,
+  filmTitle: PropTypes.string.isRequired,
+  starName: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default connect(
   MSTP,

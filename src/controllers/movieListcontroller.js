@@ -50,7 +50,7 @@ module.exports.createNewMovie = async (req, res) => {
 };
 
 
-module.exports.uploadFile= (req, res) => {
+module.exports.uploadFile = (req, res) => {
 console.log(req.file)
 
 fs.readFile(`./uploads/${req.file.filename}`, 'utf8', function(err,data) {

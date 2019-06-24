@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../services/api";
 import { connect } from "react-redux";
 import addMovie from "../../redux/actions/addMovieAction";
+import PropTypes from "prop-types";
 import s from "./AddMoviesPage.module.css";
 
 class AddMoviesPage extends Component {
@@ -80,8 +81,8 @@ class AddMoviesPage extends Component {
         <input
           className={s.input}
           type="number"
-          min="1980"
-          max="2025"
+          min="1960"
+          max="2022"
           onChange={e => this.handleChange(e)}
           name="yearInput"
           placeholder="Year"
@@ -120,6 +121,15 @@ class AddMoviesPage extends Component {
 const MDTP = dispatch => ({
   addMovie: data => dispatch(addMovie(data))
 });
+
+AddMoviesPage.propTypes = {
+  titleInput: PropTypes.string.isRequired,
+  yearInput: PropTypes.string.isRequired,
+  formatInput: PropTypes.string.isRequired,
+  starInput: PropTypes.string.isRequired,
+  submitDisabled: PropTypes.bool.isRequired,
+  addMovie: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

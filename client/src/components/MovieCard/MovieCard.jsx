@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import getData from "../../redux/actions/getData";
+
+import PropTypes from "prop-types";
 import s from "./MovieCard.module.css";
 
 const MovieCard = ({ item, deleteFilm }) => {
@@ -27,6 +29,11 @@ const MovieCard = ({ item, deleteFilm }) => {
 const MDTP = dispatch => ({
   deleteFilm: id => dispatch(getData.asyncDeleteDataAction(id))
 });
+
+MovieCard.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteFilm: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

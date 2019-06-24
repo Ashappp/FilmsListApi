@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import s from "./MovieList.module.css";
 import MovieCard from "../MovieCard/MovieCard";
@@ -21,6 +21,8 @@ const MSTP = store => ({
   filteredData: store.filteredData
 });
 
-Dashboard.propTypes = {};
+Dashboard.propTypes = {
+  filteredData: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default connect(MSTP)(Dashboard);
