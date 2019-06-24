@@ -1,5 +1,6 @@
 const MovieListSchema = require("../models/movieList");
-const fs = require('fs')
+const fs = require('fs');
+
 
 module.exports.getAllList = async (req, res) => {
   try {
@@ -49,26 +50,35 @@ module.exports.createNewMovie = async (req, res) => {
 };
 
 
-module.exports.uploadFile= async (req, res) => {
-  try {
-    fs.readfile(req.body, 'utf8', function(err,data) {
-      if(err) throw err;
-      let obj = {};
-      let splitted = data.toString().split("\n");
-      for (let i = 0; i<splitted.length; i++) {
-          let splitLine = splitted[i].split(":");
-          obj[splitLine[0]] = obj.splittLine[1].split(" ");
-      }
-      console.log(obj);
-  });
-    res.json({
-      success: true,
-      message: "ok"
-    });
-  } catch (err) {
-    res.json({
-      success: false,
-      message: "no"
-    });
+module.exports.uploadFile= (req, res) => {
+console.log(req.file)
+
+fs.readFile(`./uploads/${req.file.filename}`, 'utf8', function(err,data) {
+  if(err) throw err;
+  console.log(data);
+  let obj = {};
+  let splitted = data.toString().split("\n");
+  console.log(splitted);
+  for (let i = 0; i<splitted.length; i++) {
+      let splitLine = splitted[i].split(":");
+      console.log(splitLine)
+      if(splitLine > 1 ) console.log()
+      // obj[splitLine[0]] = obj.splittLine[1].split(" ");
   }
+
+  console.log(obj);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
