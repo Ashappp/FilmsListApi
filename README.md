@@ -59,15 +59,16 @@ if success
 {
 statusCode: 200
 success: true,
-message: "file delete",
+message: "movie deleted",
 deleteMovie: {}
 });
 
 if error 
 {
-statusCode: 400
+err,
+statusCode: 400,
 success: false,
-message: "file is not delete"
+message: "movie is not delete"
 };
 ```
 #create a new movie
@@ -89,7 +90,7 @@ if success
 statusCode: 200,
 success: true,
 message: "Movie create"
-createdFilm: {}
+createdFilm:doc
 }
   
   
@@ -97,7 +98,8 @@ createdFilm: {}
 {
  statusCode: 400,
  success: false,
- message: "Movie not create
+ message: "Movie is not create",
+ error
  }
 ```
 #upload file in BD
@@ -112,8 +114,8 @@ if success
 {
 statusCode: 200
 success: true,
-message: "file upload",
-createdMovies: 
+message: ""file  ulpoad"",
+createdMovies
 }
 
 
@@ -121,7 +123,8 @@ if error
 {
 statusCode: 400
 success: false,
-message: "file is not ulpoad"
+message: "file is not ulpoad",
+eror
 }
 
 
