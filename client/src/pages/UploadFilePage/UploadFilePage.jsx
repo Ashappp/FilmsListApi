@@ -9,7 +9,7 @@ const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [uploadedFile] = useState({});
-  const [uploadPercentage] = useState(0);
+  const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const onChange = e => {
     setFile(e.target.files[0]);
@@ -26,6 +26,13 @@ const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
         .post("http://localhost:3003/api/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
+          },
+          onUploadProgress: progressEvent => {
+            setUploadPercentage(
+              parseInt(
+                Math.round((progressEvent.loaded * 100) / progressEvent.total)
+              )
+            );
           }
         })
         .then(response => {
@@ -34,23 +41,6 @@ const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
           history.push("/movies");
         })
         .catch(err => console.log(err));
-
-      // onUploadProgress: progressEvent => {
-      //   setUploadPercentage(
-      //     parseInt(
-      //       Math.round((progressEvent.loaded * 100) / progressEvent.total)
-      //     )
-      //   );
-
-      //   // setTimeout(() => setUploadPercentage(0), 3000);
-      //   }
-      // }
-      // )then(data => actionAfterUploadFile(data.createdMovies));
-      // const { fileName, filePath } = res.data;
-
-      // setUploadedFile({ fileName, filePath });
-
-      // setMessage("File Uploaded");
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +48,6 @@ const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
 
   return (
     <Fragment>
-      {/* {message ? <Message msg={message} /> : null} */}
       <form onSubmit={onSubmit} className={style.form}>
         <input
           type="file"

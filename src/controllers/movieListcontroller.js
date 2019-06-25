@@ -12,7 +12,7 @@ module.exports.getAllList = async (req, res) => {
   } catch (err) {
     res.json({
       success: false,
-      message: "no"
+      message: "error on server"
     });
   }
 };
@@ -26,7 +26,7 @@ module.exports.deleteMovie = async (req, res) => {
       movieToDelete
     });
   } catch (err) {
-    res.json(err);
+    res.json({ err, success: true, message: "movie is not deleted" });
   }
 };
 
@@ -37,15 +37,15 @@ module.exports.createNewMovie = async (req, res) => {
     await newMovie.save().then(doc =>
       res.json({
         success: true,
-        message: "ok",
+        message: "movie created",
         createdFilm: doc
       })
     );
   } catch (err) {
-    console.log(err);
     res.json({
+      err,
       success: false,
-      message: "no"
+      message: "movie is not created"
     });
   }
 };
@@ -77,7 +77,8 @@ module.exports.uploadFile = (req, res) => {
       if (error) {
         res.json({
           success: false,
-          message: "file is not ulpoad"
+          message: "file is not ulpoad",
+          error
         });
       }
       res.json({

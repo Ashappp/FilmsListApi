@@ -7,5 +7,4 @@ export const GET_MOVIE_FROM_STAR = "GET_MOVIE_FROM_STAR";
 export const GET_MOVIE_FROM_TITLE = "GET_MOVIE_FROM_TITLE";
 export const ADD_DATA_IN_STORE = "ADD_DATA_IN_STORE";
 export const ADD_MOVIE = "ADD_MOVIE";
-
-// export defa
+export const GET_DATA_AFTER_UPLOAD = "GET_DATA_AFTER_UPLOAD";

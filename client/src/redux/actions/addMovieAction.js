@@ -1,9 +1,9 @@
 import { getArrFromDraw } from "./filteredDataActions";
-import * as t from "./actionsType";
+import { ADD_MOVIE } from "./actionsType";
 
 export const addMovie = data => (dispatch, getState) => {
   dispatch({
-    type: t.ADD_MOVIE,
+    type: ADD_MOVIE,
     payload: data
   });
   const state = getState();
