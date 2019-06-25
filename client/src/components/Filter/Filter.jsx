@@ -91,8 +91,6 @@ Filter.propTypes = {
   filterStar: PropTypes.func.isRequired,
   filterSortAZ: PropTypes.func.isRequired,
   filterSortZA: PropTypes.func.isRequired,
-  filmTitle: PropTypes.string.isRequired,
-  starName: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

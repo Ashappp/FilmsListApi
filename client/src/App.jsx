@@ -25,8 +25,7 @@ class App extends Component {
       <div className={s.container}>
         {!data.length ? (
           <div className={s.loader}>
-            <Loader type="Puff" color="#fff" height="100" width="100" />
-            <p className={s.loaderText}>Loading...</p>
+            <Loader type="Puff" color="#4e4e4e" height="100" width="100" />
           </div>
         ) : (
           <div>

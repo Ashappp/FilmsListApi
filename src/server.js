@@ -9,8 +9,6 @@ const router = require("./routes/routes");
 
 const url =
   "mongodb+srv://Alex:zxcvbnm123Qasd!@cluster0-mvpsh.mongodb.net/fillmslist?retryWrites=true";
-// mongodb+srv://Alex:zxcvbnm123Qasd!@cluster0-mvpsh.mongodb.net/test?retryWrites=true&w=majority
-// "mongodb+srv://AlexShouAtlasDB:Utk4fUTAEG2bhQB!@cluster0-9qynf.mongodb.net/fillmslist?retryWrites=true";
 
 mongoose
   .connect(url, { useNewUrlParser: true, useCreateIndex: true })

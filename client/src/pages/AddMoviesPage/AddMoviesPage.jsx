@@ -18,7 +18,6 @@ class AddMoviesPage extends Component {
   }
 
   handlerOnSubmit = e => {
-    console.log("ok");
     e.preventDefault();
     const { titleInput, yearInput, formatInput, starInput } = this.state;
     const { addMovie } = this.props;
@@ -123,11 +122,6 @@ const MDTP = dispatch => ({
 });
 
 AddMoviesPage.propTypes = {
-  titleInput: PropTypes.string.isRequired,
-  yearInput: PropTypes.string.isRequired,
-  formatInput: PropTypes.string.isRequired,
-  starInput: PropTypes.string.isRequired,
-  submitDisabled: PropTypes.bool.isRequired,
   addMovie: PropTypes.func.isRequired
 };
 

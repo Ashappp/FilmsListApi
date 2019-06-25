@@ -1,18 +1,15 @@
 import axios from "axios";
-import {
-  getArrFromDraw
-} from "../actions/filteredDataActions";
-import {
-  deleteFilteredData
-} from './filteredDataActions';
+import { getArrFromDraw } from "../actions/filteredDataActions";
+import { deleteFilteredData } from "./filteredDataActions";
+import { GET_DATA, DELETE_DATA } from "./actionsType";
 
 const getData = data => ({
-  type: "GET_DATA",
+  type: GET_DATA,
   payload: data
 });
 
 const deleteData = id => ({
-  type: "DELETE_DATA",
+  type: DELETE_DATA,
   id
 });
 
@@ -26,17 +23,17 @@ const asyncDataAction = () => dispatch => {
     .catch(error => console.log(error));
 };
 
-const asyncDeleteDataAction = (id) => dispatch => {
+const asyncDeleteDataAction = id => dispatch => {
   axios
     .delete(`http://localhost:3003/api/delete/${id}`)
     .then(res => {
-      if (res.data._id === id) {
+      if (res.data.movieToDelete._id === id) {
         dispatch(deleteData(id));
         dispatch(deleteFilteredData(id));
       }
     })
-    .catch(err => console.log(err))
-}
+    .catch(err => console.log(err));
+};
 
 export default {
   asyncDataAction,

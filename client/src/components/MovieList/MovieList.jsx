@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import s from "./MovieList.module.css";
 import MovieCard from "../MovieCard/MovieCard";
 
-class Dashboard extends Component {
+class MovieList extends Component {
   render() {
     const { filteredData } = this.props;
     return (
@@ -21,8 +21,8 @@ const MSTP = store => ({
   filteredData: store.filteredData
 });
 
-Dashboard.propTypes = {
+MovieList.propTypes = {
   filteredData: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default connect(MSTP)(Dashboard);
+export default connect(MSTP)(MovieList);

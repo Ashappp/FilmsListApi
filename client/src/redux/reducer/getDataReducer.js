@@ -8,7 +8,10 @@ function data(state = [], action) {
       return newArr;
 
     case "ADD_MOVIE":
-      return [...state, action.payload]
+      return [...state, action.payload];
+
+    case "GET_DATA_AFTER_UPLOAD":
+      return [...state, ...action.payload];
 
     default:
       return state;
