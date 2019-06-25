@@ -1,7 +1,7 @@
-# MoviesList attachment
+## MoviesList attachment
 
 This is a full stack React/Redux-Node/Express Movies list attachment
-# The application can:
+## The application can:
 - get a list of movies from the database,
 - add a new movie,
 - filter the list by title, actors, sort alphabetically,
@@ -16,63 +16,64 @@ npm install
 cd client
 npm install
 cd ..
-npm run dev
+npm start
 
 # Server on localhost:3000
 # Client on localhost:3003
 
 ```
 ## BackEnd documentation
-
+#get all list of movies
 ```
-@metod GET   http://localhost:3003/api/all
-get all list of movies
+@metod: GET,    URL: http://localhost:3003/api/all
+
 
 You get res.json 
+
 if success
 {
+statusCode: 200
 success": true,
 "data": [{"stars": [string],
 "_id": string",
 "title": number,
- "releaseYear": number,
+"releaseYear": number,
 "format": string,
 },"message": "ok"
 }
 
 if error 
 {
-"success": false,
-"message": "error on server"
- })
-
-
-
-@metod DELETE http://localhost:3003/api/delete/:id
-delete movie by id
-
-You get res.json 
-
-if error 
-{
+statusCode: 500
 success: false,
-message: "file is not delete"
-};
-      
+message: "error on server"
+ })
+```
+#delete movie by id
+
+```
+@metod: DELETE,   URL: http://localhost:3003/api/delete/:id
+You get res.json 
+     
 if success
-res.json({
+{
+statusCode: 200
 success: true,
 message: "file delete",
 deleteMovie: {}
 });
 
+if error 
+{
+statusCode: 400
+success: false,
+message: "file is not delete"
+};
+```
+#create a new movie
 
-
-
-
-
-@metod PUT  http://localhost:3003/api/create
-create a new movie
+```
+@metod: PUT,  URL: http://localhost:3003/api/create
 
 req.body: {
   title: String,
@@ -82,44 +83,46 @@ req.body: {
   }
   
 You get res.json 
-  if success
-  {
- success: true,
- message: "Movie create"
- createdFilm: {}
-  }
-  
- if error 
-{
-"success": false,
-"message": "Movie not create
- }
 
-
-
-
-
-
-
-
-
-@metod POST http://localhost:3003/api/upload    
-download file in BD
-form-data: file.txt
-
-
-if error 
-res.json({
-success: false,
-message: "file is not ulpoad"
-});
-      
 if success
-res.json({
+{
+statusCode: 200,
+success: true,
+message: "Movie create"
+createdFilm: {}
+}
+  
+  
+ if error
+{
+ statusCode: 400,
+ success: false,
+ message: "Movie not create
+ }
+```
+#upload file in BD
+
+```
+@metod: POST,  URL: http://localhost:3003/api/upload 
+form-data: file.txt
+   
+You get res.json   
+
+if success
+{
+statusCode: 200
 success: true,
 message: "file upload",
 createdMovies: 
-});
+}
+
+
+if error
+{
+statusCode: 400
+success: false,
+message: "file is not ulpoad"
+}
 
 
 ```
