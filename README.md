@@ -60,7 +60,7 @@ if success
 statusCode: 200
 success: true,
 message: "movie deleted",
-deleteMovie: {}
+deleteMovie
 });
 
 if error 
