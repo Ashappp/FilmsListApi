@@ -2,6 +2,7 @@ import axios from "axios";
 import { getArrFromDraw } from "../actions/filteredDataActions";
 import { deleteFilteredData } from "./filteredDataActions";
 import { GET_DATA, DELETE_DATA } from "./actionsType";
+import {url} from "../../services/fileWithConstants"
 
 const getData = data => ({
   type: GET_DATA,
@@ -15,7 +16,7 @@ const deleteData = id => ({
 
 const asyncDataAction = () => dispatch => {
   axios
-    .get(`http://localhost:3003/api/all`)
+    .get(`${url}/all`)
     .then(res => {
       dispatch(getData(res.data.data));
       dispatch(getArrFromDraw(res.data.data));
@@ -25,7 +26,7 @@ const asyncDataAction = () => dispatch => {
 
 const asyncDeleteDataAction = id => dispatch => {
   axios
-    .delete(`http://localhost:3003/api/delete/${id}`)
+    .delete(`${url}/delete/${id}`)
     .then(res => {
       if (res.data.movieToDelete._id === id) {
         dispatch(deleteData(id));

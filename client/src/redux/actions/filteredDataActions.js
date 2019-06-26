@@ -1,41 +1,34 @@
-import {
-  ADD_DATA_IN_STORE,
-  GET_MOVIE_FROM_TITLE,
-  GET_MOVIE_FROM_STAR,
-  GET_SORT_MOVIE_AZ,
-  GET_SORT_MOVIE_ZA,
-  DELETE_FILTERED_DATA
-} from "./actionsType";
+import * as t from "./actionsType";
 
 export const getArrFromDraw = data => ({
-  type: ADD_DATA_IN_STORE,
+  type: t.ADD_DATA_IN_STORE,
   payload: data
 });
 
 export const arrFilterTitle = (data, param) => ({
-  type: GET_MOVIE_FROM_TITLE,
+  type: t.GET_MOVIE_FROM_TITLE,
   payload: data,
   param
 });
 
 export const arrFilterStar = (data, param) => ({
-  type: GET_MOVIE_FROM_STAR,
+  type: t.GET_MOVIE_FROM_STAR,
   payload: data,
   param
 });
 
 export const arrFilterSortAZ = data => ({
-  type: GET_SORT_MOVIE_AZ,
+  type: t.GET_SORT_MOVIE_AZ,
   payload: data
 });
 
 export const arrFilterSortZA = data => ({
-  type: GET_SORT_MOVIE_ZA,
+  type: t.GET_SORT_MOVIE_ZA,
   payload: data
 });
 
 export const deleteFilteredData = id => ({
-  type: DELETE_FILTERED_DATA,
+  type: t.DELETE_FILTERED_DATA,
   id
 });
 

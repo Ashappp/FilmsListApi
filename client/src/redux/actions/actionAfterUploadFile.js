@@ -1,7 +1,7 @@
-import { GET_DATA_AFTER_UPLOAD } from "./actionsType";
+import * as t from "./actionsType";
 
 export const actionAfterUploadFile = data => ({
-  type: GET_DATA_AFTER_UPLOAD,
+  type: t.GET_DATA_AFTER_UPLOAD,
   payload: data
 });
 export default actionAfterUploadFile;

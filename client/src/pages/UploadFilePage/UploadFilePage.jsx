@@ -4,6 +4,7 @@ import axios from "axios";
 import style from "./UploadFilePage.module.css";
 import { connect } from "react-redux";
 import actionAfterUploadFile from "../../redux/actions/actionAfterUploadFile";
+import {url} from "../../services/fileWithConstants"
 
 const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
   const [file, setFile] = useState("");
@@ -23,7 +24,7 @@ const FileUpload = ({ history, actionAfterUploadFileFunc }) => {
 
     try {
       await axios
-        .post("http://localhost:3003/api/upload", formData, {
+        .post(`${url}/upload`, formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           },
