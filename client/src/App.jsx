@@ -42,7 +42,7 @@ class App extends Component {
     );
   }
 }
-//a
+//ad
 const MSTP = store => ({
   data: store.data,
 });
