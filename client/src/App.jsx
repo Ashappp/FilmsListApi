@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import MoviesPage from "./pages/MoviesPage/MoviesPage";
-import AddMoviesPage from "./pages/AddMoviesPage/AddMoviesPage";
-import UploadFilePage from "./pages/UploadFilePage/UploadFilePage";
-import s from "./App.module.css";
-import Loader from "react-loader-spinner";
-import getData from "./redux/actions/getData";
-import Header from "./components/Header/Header";
-import getArrFromDraw from "./redux/actions/filteredDataActions";
+import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import MoviesPage from './pages/MoviesPage/MoviesPage';
+import AddMoviesPage from './pages/AddMoviesPage/AddMoviesPage';
+import UploadFilePage from './pages/UploadFilePage/UploadFilePage';
+import s from './App.module.css';
+import Loader from 'react-loader-spinner';
+import getData from './redux/actions/getData';
+import Header from './components/Header/Header';
+import getArrFromDraw from './redux/actions/filteredDataActions';
 
 class App extends Component {
   state = {};
@@ -42,17 +42,17 @@ class App extends Component {
     );
   }
 }
-
+//a
 const MSTP = store => ({
-  data: store.data
+  data: store.data,
 });
 
 const MDTP = dispatch => ({
   getData: input => dispatch(getData.asyncDataAction(input)),
-  getFilterArr: data => dispatch(getArrFromDraw.getArrFromDraw(data))
+  getFilterArr: data => dispatch(getArrFromDraw.getArrFromDraw(data)),
 });
 
 export default connect(
   MSTP,
-  MDTP
+  MDTP,
 )(App);
